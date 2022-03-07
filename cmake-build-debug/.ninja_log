@@ -1,0 +1,4 @@
+# ninja log v5
+1	590	1646671558952285044	CMakeFiles/conway.dir/Conway.cpp.o	73b1cb5dba24a6c6
+0	956	1646671559319863904	CMakeFiles/conway.dir/main.cpp.o	75333691ec25a86c
+957	1060	1646671559425278413	conway	c9037ae7f172d0f4
