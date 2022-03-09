@@ -58,6 +58,24 @@ void Conway::simulation(void) {
      * 3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
      * (from Wikipedia)
      */
+
+    //Must have a new map, because map will be changed during simulation
+    vector<bool> next_gen_map(width*height);
+
+    for (int x = 0; x < width; x++){
+        for (int y = 0; y < height; y++){
+            int neighbors = cellNeighbors(x, y, true);
+
+            if (getCell(x, y)){    //Living cells
+                next_gen_map[x + y*height] = (neighbors == 2 || neighbors == 3);
+
+            } else {    //Dead cells
+                next_gen_map[x + y*height] = neighbors == 3;
+            }
+        }
+    }
+
+    map = next_gen_map;
 }
 
 Conway::Conway(unsigned int width_, unsigned int height_, float initial_chance_, unsigned int rounds_) {
@@ -72,7 +90,6 @@ Conway::Conway(unsigned int width_, unsigned int height_, float initial_chance_,
     rounds = rounds_;
 
     map.resize(width*height);  //The map size is constant. Ensure that the correct amount of memory is reserved
-
 }
 
 void Conway::seed(unsigned int seed_) {

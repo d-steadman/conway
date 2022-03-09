@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    Conway *conway = new Conway(10, 5, 0.45, 3);
+    Conway *conway = new Conway(40, 20, 0.5, 3);
     conway->seed(146);
     conway->generate();
     conway->printMap();
